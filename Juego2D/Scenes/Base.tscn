@@ -12,11 +12,13 @@ margin_bottom = 768.0
 texture = ExtResource( 1 )
 
 [node name="Area2D" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-position = Vector2( 481.703, 367.401 )
+position = Vector2( 408.397, 218.346 )
 scale = Vector2( 0.5, 0.5 )
+speedIni = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="Area2D"]
+visible = false
+zoom = Vector2( 3, 3 )
 limit_left = 0
 limit_top = 0
 limit_right = 1024
@@ -25,4 +27,4 @@ limit_bottom = 600
 [node name="Position0" type="Position2D" parent="."]
 
 [node name="Position1" type="Position2D" parent="."]
-position = Vector2( 1024.08, 600 )
+position = Vector2( 1024, 600 )
