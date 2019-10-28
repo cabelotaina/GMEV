@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/Caracol.gd" type="Script" id=1]
+[ext_resource path="res://src/Caracol.gd" type="Script" id=1]
 [ext_resource path="res://resources/Caracol/Idle/g3777.png" type="Texture" id=2]
 [ext_resource path="res://resources/Caracol/Idle/g3808.png" type="Texture" id=3]
 [ext_resource path="res://resources/Caracol/Idle/g3839.png" type="Texture" id=4]
@@ -36,7 +36,7 @@ script = ExtResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "Walk"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
