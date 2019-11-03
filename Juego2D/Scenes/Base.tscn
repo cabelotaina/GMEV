@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Base.gd" type="Script" id=1]
 [ext_resource path="res://resources/fondoAcuario.jpg" type="Texture" id=2]
@@ -6,15 +6,19 @@
 [ext_resource path="res://Scenes/Light2D.gd" type="Script" id=4]
 [ext_resource path="res://resources/Light/Full.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Temperatura.gd" type="Script" id=6]
-[ext_resource path="res://Scenes/Caracol.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/spawn_bubbles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Catfish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Catfish.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Caracol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/spawn_bubbles.tscn" type="PackedScene" id=10]
 
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( 1027.9, -0.711426 )
-b = Vector2( 1026.9, 708.908 )
+[sub_resource type="SegmentShape2D" id=5]
+b = Vector2( -1.103, 708.278 )
 
-[sub_resource type="SegmentShape2D" id=2]
-b = Vector2( -0.103027, 709.64 )
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 1026.9, 1.82956 )
+
+[sub_resource type="SegmentShape2D" id=4]
+b = Vector2( -0.102997, 707.919 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,27 +50,24 @@ energy = 0.01
 script = ExtResource( 6 )
 
 [node name="Catfish" parent="." instance=ExtResource( 7 )]
-position = Vector2( 584.397, 198.346 )
-scale = Vector2( 0.5, 0.5 )
-collision_layer = 2
-collision_mask = 2
-speed = 1.0
+position = Vector2( 687, 236.05 )
+script = ExtResource( 8 )
+speed = 0.1
 verticalMove = true
 horizontalMove = true
 
-[node name="Camera2D" type="Camera2D" parent="Catfish"]
+[node name="Principal" type="Camera2D" parent="Catfish"]
+position = Vector2( 585.397, 173.296 )
+scale = Vector2( 0.5, 0.5 )
 current = true
 limit_left = 0
 limit_top = 0
 limit_right = 1024
-limit_bottom = 600
+limit_bottom = 710
 
-[node name="Snail" parent="." instance=ExtResource( 7 )]
-editor/display_folded = true
+[node name="Snail" parent="." instance=ExtResource( 9 )]
 position = Vector2( 420.49, 683.307 )
 scale = Vector2( 0.5, 0.5 )
-collision_layer = 2
-collision_mask = 2
 speed = 0.03
 automatic = true
 verticalMove = true
@@ -81,17 +82,38 @@ limit_right = 1024
 limit_bottom = 600
 
 [node name="Right limit" type="Area2D" parent="."]
+position = Vector2( 1024, 0 )
+collision_layer = 0
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right limit"]
-shape = SubResource( 1 )
+shape = SubResource( 5 )
+
+[node name="Up limit" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up limit"]
+shape = SubResource( 3 )
+
+[node name="Down limit" type="Area2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, 710 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down limit"]
+shape = SubResource( 3 )
 
 [node name="Left limit" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 0
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left limit"]
-shape = SubResource( 2 )
+position = Vector2( 0, 4 )
+shape = SubResource( 4 )
 
-[node name="spawn_bubbles" parent="." instance=ExtResource( 8 )]
+[node name="spawn_bubbles" parent="." instance=ExtResource( 10 )]
 position = Vector2( 512, 710 )
 r_margin = 1025.0
 l_margin = 0.0

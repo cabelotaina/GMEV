@@ -30,3 +30,8 @@ func idle(delta):
 	
 func flip():
 	$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
+
+func change_direction():
+	movement_vector *= -1
+	$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
+
