@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/TemperaturaNode.gd" type="Script" id=1]
+[ext_resource path="res://resources/Light/Full.png" type="Texture" id=2]
+[ext_resource path="res://resources/fondoAcuario.jpg" type="Texture" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Temperatura" type="Light2D" parent="."]
+position = Vector2( 512.497, 358.748 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -7.53674
+margin_top = 6.02936
+margin_right = 1016.46
+margin_bottom = 716.029
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 914.0
+margin_top = 17.0
+margin_right = 1003.0
+margin_bottom = 74.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )

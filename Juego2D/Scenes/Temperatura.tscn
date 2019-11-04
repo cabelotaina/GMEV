@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/TemperaturaNode.gd" type="Script" id=1]
+[ext_resource path="res://resources/Light/Full.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Temperatura" type="Light2D" parent="."]
+position = Vector2( 690.472, 518.023 )
+scale = Vector2( 1.44758, 1.5577 )
+enabled = false
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 914.0
+margin_top = 17.0
+margin_right = 1003.0
+margin_bottom = 74.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
