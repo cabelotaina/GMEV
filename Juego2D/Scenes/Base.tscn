@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Base.gd" type="Script" id=1]
 [ext_resource path="res://resources/fondoAcuario.jpg" type="Texture" id=2]
@@ -8,8 +8,10 @@
 [ext_resource path="res://Scenes/Catfish.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Catfish.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Caracol.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/spawn_bubbles.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Algas.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/PezPompa.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Anguila.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/spawn_bubbles.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Algas.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SegmentShape2D" id=1]
 b = Vector2( -1.103, 708.278 )
@@ -47,9 +49,9 @@ position = Vector2( 0, 5.28848 )
 [node name="Catfish" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 687, 236.05 )
+collision_mask = 36
 script = ExtResource( 7 )
-speed = 2.0
-verticalMove = true
+speed = 0.1
 horizontalMove = true
 
 [node name="Principal" type="Camera2D" parent="Catfish"]
@@ -63,9 +65,9 @@ limit_bottom = 710
 
 [node name="Snail" parent="." instance=ExtResource( 8 )]
 editor/display_folded = true
-position = Vector2( 420.49, 683.307 )
+position = Vector2( 541.49, 409.307 )
 scale = Vector2( 0.5, 0.5 )
-speed = 0.03
+speed = 0.002
 automatic = true
 verticalMove = true
 horizontalMove = true
@@ -78,8 +80,13 @@ limit_top = 0
 limit_right = 1024
 limit_bottom = 600
 
+[node name="PezPompa" parent="." instance=ExtResource( 9 )]
+position = Vector2( 876, 85 )
+
+[node name="Anguila" parent="." instance=ExtResource( 10 )]
+position = Vector2( 597, 111 )
+
 [node name="Right limit" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 1024, 0 )
 collision_layer = 0
 collision_mask = 3
@@ -88,14 +95,12 @@ collision_mask = 3
 shape = SubResource( 1 )
 
 [node name="Up limit" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Up limit"]
 shape = SubResource( 2 )
 
 [node name="Down limit" type="Area2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 710 )
 collision_layer = 0
 
@@ -111,46 +116,62 @@ collision_mask = 3
 position = Vector2( 0, 4 )
 shape = SubResource( 3 )
 
-[node name="spawn_bubbles" parent="." instance=ExtResource( 9 )]
+[node name="spawn_bubbles" parent="." instance=ExtResource( 11 )]
 position = Vector2( 512, 710 )
 r_margin = 600.0
 l_margin = -600.0
 frecuenciaS = 2.0
 
-[node name="Algas" parent="." instance=ExtResource( 10 )]
+[node name="Algas" parent="." instance=ExtResource( 12 )]
 position = Vector2( 155.923, 712.089 )
 scale = Vector2( 1.85649, 2.36847 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas2" parent="." instance=ExtResource( 10 )]
-position = Vector2( 85.7752, 723.78 )
+[node name="Algas2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 85.7752, 713.78 )
 scale = Vector2( 1.53673, 1.57493 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas3" parent="." instance=ExtResource( 10 )]
+[node name="Algas3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 296.219, 713.759 )
 scale = Vector2( 2.06371, 3.39878 )
 collision_layer = 32
-collision_mask = 32
+collision_mask = 0
 
-[node name="Algas5" parent="." instance=ExtResource( 10 )]
+[node name="Algas5" parent="." instance=ExtResource( 12 )]
 position = Vector2( 897.485, 717.099 )
 scale = Vector2( 1.85649, 2.36847 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas6" parent="." instance=ExtResource( 10 )]
+[node name="Algas6" parent="." instance=ExtResource( 12 )]
 position = Vector2( 752.179, 712.089 )
 scale = Vector2( 0.92312, 1.02619 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas7" parent="." instance=ExtResource( 10 )]
+[node name="Algas7" parent="." instance=ExtResource( 12 )]
 position = Vector2( 548.417, 713.759 )
 scale = Vector2( 0.758625, 0.626447 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas8" parent="." instance=ExtResource( 10 )]
+[node name="Algas8" parent="." instance=ExtResource( 12 )]
 position = Vector2( 962.622, 713.759 )
 scale = Vector2( 0.576573, 0.425792 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas9" parent="." instance=ExtResource( 10 )]
+[node name="Algas9" parent="." instance=ExtResource( 12 )]
 position = Vector2( 234.422, 712.089 )
 scale = Vector2( 0.576573, 0.425792 )
+collision_layer = 32
+collision_mask = 0
 
-[node name="Algas10" parent="." instance=ExtResource( 10 )]
+[node name="Algas10" parent="." instance=ExtResource( 12 )]
 position = Vector2( 419.812, 717.099 )
 scale = Vector2( 0.576573, 0.425792 )
+collision_layer = 32
+collision_mask = 0

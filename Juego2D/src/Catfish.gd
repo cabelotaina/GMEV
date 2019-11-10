@@ -1,42 +1,40 @@
 extends "res://src/Personaje.gd"
 
-var last_direction = Vector2(0, 0)
+
 
 func _ready():
 	$AnimatedSprite.play("Idle")
 	self.connect("area_entered", self, "_on_bubbles")
 	$Timer.connect("timeout", self, "_on_timeout")
 
-func move_right(delta):
+func move():
+	self.last_direction = self.movement_vector
+	self.position += movement_vector * speed
+
+func set_right_movement():
 	$AnimatedSprite.flip_v = false
 	$AnimatedSprite.flip_h = false
-	$AnimatedSprite.play("MoveRight")	
-	self.position -= movement_vector * speed
-	self.last_direction = Vector2(1, 0)
+	self.movement_vector = Vector2(1, 0)
+	$AnimatedSprite.play("MoveRight")
 
-func move_left(delta):
+func set_left_movement():
 	$AnimatedSprite.flip_v = false
 	$AnimatedSprite.flip_h = true
-	$AnimatedSprite.play("MoveRight")	
-	self.position += movement_vector * speed
-	self.last_direction = Vector2(-1, 0)
-	
-func move_up(delta):
+	self.movement_vector = Vector2(-1, 0)
+	$AnimatedSprite.play("MoveRight")
+
+func set_up_movement():
 	$AnimatedSprite.flip_v = false
-	$AnimatedSprite.play("MoveUp")	
-	self.position -= Vector2(0, 1) * speed
-	self.last_direction = Vector2(0, -1)
-	
-func move_down(delta):
+	self.movement_vector = Vector2(0, -1)
+	$AnimatedSprite.play("MoveUp")
+
+func set_down_movement():
 	$AnimatedSprite.flip_v = true
-	$AnimatedSprite.play("MoveUp")	
-	self.position += Vector2(0, 1) * speed
-	self.last_direction = Vector2(0, 1)
+	self.movement_vector = Vector2(0, 1)
+	$AnimatedSprite.play("MoveUp")
 
 func move_backward():
-	#print(self.position)
 	self.position += -50 * last_direction
-	#print(self.position)
 
 func idle(delta):
 	$AnimatedSprite.flip_v = false
@@ -51,12 +49,22 @@ func flip():
 
 func _on_bubbles(area):
 	#TODO: Comprobar que name contiene 'Bubble'
-	print("Bubbleeeee")
-	area.visible = false
-	$AnimatedSprite.play("Collide")
-	$AnimatedSprite.flip_v = true
-	isBlocked = true
-	$Timer.start(.7)
+	print("Catfish collision")
+	print(area.name)
+	if area.name.find("@Bubble") != -1:
+		area.visible = false
+		$AnimatedSprite.play("Collide")
+		$AnimatedSprite.flip_v = true
+		isBlocked = true
+		$Timer.start(.7)
+		return
+	
+	if area.name.find("limit") != -1:
+		move_backward()
+		return
+		
+	if area.name.find("Algas") != -1:
+		return
 	
 func _on_timeout():
 	$AnimatedSprite.flip_v = false

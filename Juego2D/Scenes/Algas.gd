@@ -8,10 +8,12 @@ extends Area2D
 func _ready():
 	randomize()
 	$AnimatedSprite.frame = randi() % 5
-#	self.connect("area_entered", self, "_collide_catfish")
-#	$Timer.connect("timeout", self, "_on_Timer_timeout")
+	self.connect("area_entered", self, "_collide_catfish")
+	$Timer.connect("timeout", self, "_on_Timer_timeout")
 
-func _collide_catfish():
+func _collide_catfish(area):
+	print("Alga collision")
+	print(area.name)
 	$AnimatedSprite.speed_scale = 5
 	$Timer.start(2)
 	

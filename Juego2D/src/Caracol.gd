@@ -1,24 +1,20 @@
 extends "res://src/Personaje.gd"
 
 func _ready():
-	$AnimatedSprite.play("Idle")
+	print("Caracol")
+	self.connect("area_entered", self, "_on_collision")
+	set_left_movement()
 
-func move_right(delta):
+func set_right_movement():
 	$AnimatedSprite.flip_h = true
-	$AnimatedSprite.play("Walk")	
-	self.position -= movement_vector * speed
+	self.movement_vector = Vector2(1, 0)
+	$AnimatedSprite.play("Walk")
 
-func move_left(delta):
+func set_left_movement():
 	$AnimatedSprite.flip_h = false
-	$AnimatedSprite.play("Walk")	
-	self.position += movement_vector * speed
+	self.movement_vector = Vector2(-1, 0)
+	$AnimatedSprite.play("Walk")
 	
-func move_up(delta):
-	pass
-	
-func move_down(delta):
-	pass
-
 func move_backward():
 	var direction = 1
 	if not $AnimatedSprite.flip_h:
@@ -35,3 +31,13 @@ func change_direction():
 	movement_vector *= -1
 	$AnimatedSprite.flip_h = not $AnimatedSprite.flip_h
 
+func _on_collision(area):
+	#TODO: Comprobar que name contiene 'Bubble'
+	print("Caracol collision")
+	print(area.name)
+	if area.name.find("limit") != -1:
+		change_direction()
+
+	
+	
+	
