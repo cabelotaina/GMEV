@@ -34,12 +34,13 @@ position = Vector2( -0.735107, 0 )
 rotation = 3.14159
 frames = SubResource( 1 )
 animation = "Idle-goingSmall"
-frame = 4
+frame = 11
 playing = true
 centered = false
 flip_v = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -20.095, -68.7501 )
 shape = SubResource( 2 )
 
