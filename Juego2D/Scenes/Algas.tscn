@@ -34,7 +34,6 @@ position = Vector2( -0.735107, 0 )
 rotation = 3.14159
 frames = SubResource( 1 )
 animation = "Idle-goingSmall"
-frame = 4
 playing = true
 centered = false
 flip_v = true

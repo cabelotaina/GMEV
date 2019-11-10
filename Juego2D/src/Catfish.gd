@@ -1,7 +1,5 @@
 extends "res://src/Personaje.gd"
 
-
-
 func _ready():
 	$AnimatedSprite.play("Idle")
 	self.connect("area_entered", self, "_on_bubbles")
@@ -51,20 +49,28 @@ func _on_bubbles(area):
 	#TODO: Comprobar que name contiene 'Bubble'
 	print("Catfish collision")
 	print(area.name)
-	if area.name.find("@Bubble") != -1:
-		area.visible = false
-		$AnimatedSprite.play("Collide")
-		$AnimatedSprite.flip_v = true
-		isBlocked = true
-		$Timer.start(.7)
-		return
-	
+
 	if area.name.find("limit") != -1:
 		move_backward()
 		return
-		
+
+	if area.name.find("@Bubble") != -1:
+		area.visible = false
+		take_a_hit()
+
 	if area.name.find("Algas") != -1:
 		return
+		
+	if area.name.find("Anguila") != -1:
+		take_a_hit()
+		return
+
+func take_a_hit():
+	$AnimatedSprite.play("Collide")
+	$AnimatedSprite.flip_v = true
+	isBlocked = true
+	$Timer.start(.7)
+	return
 	
 func _on_timeout():
 	$AnimatedSprite.flip_v = false

@@ -9,6 +9,13 @@ export (bool) var isBlocked = false
 
 var movement_vector = Vector2(-1, 0)
 var last_direction = Vector2(0, 0)
+var context_speed = 0.0
+var temperature_object = null
+
+func _ready():
+	self.context_speed = self.speed
+	self.temperature_object = get_parent().get_node("Temperatura")
+	temperature_object.connect("temperatura_changed", self, "_change_speed")
 
 func _process(delta):
 	make_a_move(delta)
@@ -43,7 +50,22 @@ func move_with_input(delta):
 
 func move():
 	self.last_direction = self.movement_vector
-	self.position += movement_vector * speed
+	self.position += movement_vector * context_speed
+
+func _change_speed():
+	
+	print("Change temperature " + self.name)
+	
+	var temperatura = get_temperatura()
+	if temperatura == 0:
+		self.context_speed = self.speed
+	else:
+		self.context_speed = self.speed + (self.speed*temperatura) if temperatura > 0 else - self.speed*temperatura/25 
+	print(self.context_speed)
+
+func get_temperatura():
+	return temperature_object.temperatura
+	
 
 func set_right_movement():
 	pass

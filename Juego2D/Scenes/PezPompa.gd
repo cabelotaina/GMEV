@@ -1,4 +1,4 @@
-extends Area2D
+extends "res://src/Personaje.gd"
 
 # Declare member variables here. Examples:
 # var a = 2
