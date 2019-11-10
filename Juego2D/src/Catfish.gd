@@ -56,6 +56,7 @@ func _on_bubbles(area):
 
 	if area.name.find("@Bubble") != -1:
 		area.visible = false
+		area.get_parent().remove_child(area)
 		take_a_hit()
 
 	if area.name.find("Algas") != -1:

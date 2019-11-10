@@ -89,7 +89,7 @@ automatic = true
 horizontalMove = true
 
 [node name="Anguila" parent="." instance=ExtResource( 10 )]
-position = Vector2( 1233, 317 )
+position = Vector2( 1186, 413 )
 collision_layer = 512
 speed = 0.1
 automatic = true
