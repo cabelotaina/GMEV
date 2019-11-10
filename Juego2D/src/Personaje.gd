@@ -1,4 +1,3 @@
-
 extends Area2D
 
 export (float) var speed = 0.0
@@ -87,4 +86,3 @@ func idle(delta):
 
 func flip():
 	pass
-

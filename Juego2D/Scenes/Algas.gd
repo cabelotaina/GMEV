@@ -9,7 +9,7 @@ func _ready():
 	randomize()
 	$AnimatedSprite.frame = randi() % 5
 	self.connect("area_entered", self, "_collide_catfish")
-	$Timer.connect("timeout", self, "_on_Timer_timeout")
+#	$Timer.connect("timeout", self, "_on_Timer_timeout")
 
 func _collide_catfish(area):
 	print("Alga collision")

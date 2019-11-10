@@ -1,61 +1,61 @@
 [gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/Caracol.gd" type="Script" id=1]
-[ext_resource path="res://resources/Catfish/move-right/1.png" type="Texture" id=2]
-[ext_resource path="res://resources/Catfish/move-right/2.png" type="Texture" id=3]
-[ext_resource path="res://resources/Catfish/move-right/3.png" type="Texture" id=4]
-[ext_resource path="res://resources/Catfish/move-right/4.png" type="Texture" id=5]
-[ext_resource path="res://resources/Catfish/move-up/1.png" type="Texture" id=6]
-[ext_resource path="res://resources/Catfish/move-up/2.png" type="Texture" id=7]
-[ext_resource path="res://resources/Catfish/move-up/3.png" type="Texture" id=8]
-[ext_resource path="res://resources/Catfish/move-up/4.png" type="Texture" id=9]
-[ext_resource path="res://resources/Catfish/move-up/5.png" type="Texture" id=10]
-[ext_resource path="res://resources/Catfish/move-up/6.png" type="Texture" id=11]
-[ext_resource path="res://resources/Catfish/move-up/7.png" type="Texture" id=12]
-[ext_resource path="res://resources/Catfish/move-up/8.png" type="Texture" id=13]
-[ext_resource path="res://resources/Catfish/move-up/9.png" type="Texture" id=14]
-[ext_resource path="res://resources/Catfish/move-up/10.png" type="Texture" id=15]
-[ext_resource path="res://resources/Caracol/Movimiento/g3746.png" type="Texture" id=16]
-[ext_resource path="res://resources/Caracol/Movimiento/g3694.png" type="Texture" id=17]
-[ext_resource path="res://resources/Caracol/Movimiento/g3601.png" type="Texture" id=18]
-[ext_resource path="res://resources/Caracol/Movimiento/g3632.png" type="Texture" id=19]
-[ext_resource path="res://resources/Caracol/Movimiento/g3663.png" type="Texture" id=20]
-[ext_resource path="res://resources/Catfish/collide/1.png" type="Texture" id=21]
-[ext_resource path="res://resources/Catfish/collide/2.png" type="Texture" id=22]
-[ext_resource path="res://resources/Catfish/collide/3.png" type="Texture" id=23]
-[ext_resource path="res://resources/Catfish/collide/4.png" type="Texture" id=24]
-[ext_resource path="res://resources/Catfish/collide/5.png" type="Texture" id=25]
-[ext_resource path="res://resources/Catfish/collide/6.png" type="Texture" id=26]
-[ext_resource path="res://resources/Catfish/idle/1.png" type="Texture" id=27]
-[ext_resource path="res://resources/Catfish/idle/2.png" type="Texture" id=28]
-[ext_resource path="res://resources/Catfish/idle/3.png" type="Texture" id=29]
-[ext_resource path="res://resources/Catfish/idle/4.png" type="Texture" id=30]
+[ext_resource path="res://resources/Catfish/move-up/1.png" type="Texture" id=2]
+[ext_resource path="res://resources/Catfish/move-up/2.png" type="Texture" id=3]
+[ext_resource path="res://resources/Catfish/move-up/3.png" type="Texture" id=4]
+[ext_resource path="res://resources/Catfish/move-up/4.png" type="Texture" id=5]
+[ext_resource path="res://resources/Catfish/move-up/5.png" type="Texture" id=6]
+[ext_resource path="res://resources/Catfish/move-up/6.png" type="Texture" id=7]
+[ext_resource path="res://resources/Catfish/move-up/7.png" type="Texture" id=8]
+[ext_resource path="res://resources/Catfish/move-up/8.png" type="Texture" id=9]
+[ext_resource path="res://resources/Catfish/move-up/9.png" type="Texture" id=10]
+[ext_resource path="res://resources/Catfish/move-up/10.png" type="Texture" id=11]
+[ext_resource path="res://resources/Catfish/move-right/1.png" type="Texture" id=12]
+[ext_resource path="res://resources/Catfish/move-right/2.png" type="Texture" id=13]
+[ext_resource path="res://resources/Catfish/move-right/3.png" type="Texture" id=14]
+[ext_resource path="res://resources/Catfish/move-right/4.png" type="Texture" id=15]
+[ext_resource path="res://resources/Catfish/idle/1.png" type="Texture" id=16]
+[ext_resource path="res://resources/Catfish/idle/2.png" type="Texture" id=17]
+[ext_resource path="res://resources/Catfish/idle/3.png" type="Texture" id=18]
+[ext_resource path="res://resources/Catfish/idle/4.png" type="Texture" id=19]
+[ext_resource path="res://resources/Caracol/Movimiento/g3746.png" type="Texture" id=20]
+[ext_resource path="res://resources/Caracol/Movimiento/g3694.png" type="Texture" id=21]
+[ext_resource path="res://resources/Caracol/Movimiento/g3601.png" type="Texture" id=22]
+[ext_resource path="res://resources/Caracol/Movimiento/g3632.png" type="Texture" id=23]
+[ext_resource path="res://resources/Caracol/Movimiento/g3663.png" type="Texture" id=24]
+[ext_resource path="res://resources/Catfish/collide/1.png" type="Texture" id=25]
+[ext_resource path="res://resources/Catfish/collide/2.png" type="Texture" id=26]
+[ext_resource path="res://resources/Catfish/collide/3.png" type="Texture" id=27]
+[ext_resource path="res://resources/Catfish/collide/4.png" type="Texture" id=28]
+[ext_resource path="res://resources/Catfish/collide/5.png" type="Texture" id=29]
+[ext_resource path="res://resources/Catfish/collide/6.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "MoveRight",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "MoveUp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "Collide",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "Idle",
 "speed": 5.0
 } ]
 
@@ -74,6 +74,7 @@ animation = "Collide"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource( 2 )
 

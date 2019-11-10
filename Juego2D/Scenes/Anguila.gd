@@ -10,10 +10,11 @@ func _ready():
 	$AnimatedSprite.play("normal")
 	$AnimatedSprite.frame = randi() % 6
 	print("Anguila")
+	go()
+	
 	self.connect("area_entered", self, "_on_collision")
 	$TurnOffElectricity.connect("timeout", self, "turn_off_electricity")
 	$Go.connect("timeout", self, "go")
-	go()
 
 func set_right_movement():
 	$AnimatedSprite.flip_h = true
@@ -22,8 +23,7 @@ func set_right_movement():
 
 func set_left_movement():
 	$AnimatedSprite.flip_h = false
-	self.movement_vector = Vector2(-1, 0)
-
+	self.movement_vector = Vector2(-1, 0) * speed
 	
 func move_backward():
 	var direction = 1
@@ -59,14 +59,16 @@ func go():
 	var randvar = randi() % 2
 	if randvar == 0:
 		$AnimatedSprite.flip_h = false
-		self.position.x = 1230
+#		self.position.x = 1230
 		set_left_movement()
 	else:
 		$AnimatedSprite.flip_h = true
-		self.position.x = -200
+#		self.position.x = -200
 		set_right_movement()
 
 	randvar = randi() % 400
 	self.position.y = randvar + 200
+	self.position += movement_vector * speed
 
-	$Go.start(7 + randi() % 25)
+
+#	$Go.start(7 + randi() % 25)
