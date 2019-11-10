@@ -59,14 +59,14 @@ func go():
 	var randvar = randi() % 2
 	if randvar == 0:
 		$AnimatedSprite.flip_h = false
-#		self.position.x = 1230
+		self.position.x = 1230 #cambiar
 		set_left_movement()
 	else:
 		$AnimatedSprite.flip_h = true
-#		self.position.x = -200
+		self.position.x = -200 # cambiar
 		set_right_movement()
 
-	randvar = randi() % 400
+	randvar = randi() % 400 # cambiar
 	self.position.y = randvar + 200
 	self.position += movement_vector * speed
 

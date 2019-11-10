@@ -172,9 +172,12 @@ horizontalMove = true
 position = Vector2( 580, 370 )
 speed = 4.0
 
-[node name="Anguila" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2400, 750 )
-speed = 4.0
+[node name="Anguila" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1186, 413 )
+collision_layer = 512
+speed = 0.1
+automatic = true
+horizontalMove = true
 
 [node name="Right limit" type="Area2D" parent="."]
 editor/display_folded = true
