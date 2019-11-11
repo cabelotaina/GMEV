@@ -7,9 +7,11 @@ export (float) var frecuenciaS = 0.5
 
 func _ready():
 	$Timer.autostart = true
-	$Timer.wait_time = frecuenciaS
+	$Timer.wait_time = frecuenciaS	
 	$Timer.start()
 	
+func _process(delta):
+	$Timer.wait_time = frecuenciaS	
 	
 func spawn():
 	

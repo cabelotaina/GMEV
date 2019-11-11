@@ -5,6 +5,8 @@ export (bool) var automatic = false
 export (bool) var verticalMove = false
 export (bool) var horizontalMove = false
 export (bool) var isBlocked = false
+export (float) var verticalSpeed = 0.0
+var yOriginal = 0
 
 var movement_vector = Vector2(-1, 0)
 var last_direction = Vector2(0, 0)
@@ -12,6 +14,7 @@ var context_speed = 0.0
 var temperature_object = null
 
 func _ready():
+	yOriginal = self.position.y
 	self.context_speed = self.speed
 	self.temperature_object = get_parent().get_node("Temperatura")
 	temperature_object.connect("temperatura_changed", self, "_change_speed")
@@ -26,6 +29,15 @@ func make_a_move(delta):
 		move_with_input(delta)
 
 func automatic_move(delta):
+	if verticalMove == true:
+		var margen
+		if self.position.y > yOriginal:
+			margen = self.position.y - yOriginal
+		else:
+			margen = yOriginal - self.position.y
+		if margen > 660 or margen < 400:
+			verticalSpeed = verticalSpeed * -1
+		movement_vector.y = verticalSpeed
 	move()
 
 func move_with_input(delta):

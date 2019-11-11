@@ -15,10 +15,9 @@ func _set_position(value):
 
 func _set_scale(scala):
 	self.scale = Vector2(scala,scala)
-	
+
 func _on_Timer_timeout():
-	if self.position.y < -75 or self.position.y > 800:
-		print("Eliminando " + self.name)
+	if self.position.y < -1600:
 		self.get_parent().remove_child(self)
 		return
 	$Timer.start(2)

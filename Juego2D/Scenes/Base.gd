@@ -1,12 +1,10 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var UI = false
 var camera1 = false
 var camera2 = true
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	$CameraGlobal.current = false
 	$CameraGlobal.visible = false
@@ -15,7 +13,10 @@ func _ready():
 	camera.visible = true
 
 func _process(delta):
-	pass
+	var label = str($Temperatura.temperatura) + "º C"
+	$CameraGlobal/TemperaturaLabel.text = label
+	$Catfish/CameraCatfish/TemperaturaLabel.text = label
+	
 	
 func _input(event):	
 	if event.is_action_pressed("F1_camera1"):
@@ -35,15 +36,23 @@ func _input(event):
 		camera2 = not camera1
 		camera1 = not camera1
 	elif event.is_action_pressed("F3_UI"):
-		print("UIT", UI)
-		
 		if UI == false:
-			if camera1 == true:
-				$CameraGlobal/UI.visible = true
-			elif camera2 == true:
-				$Catfish/CameraCatfish/UI.visible = true
+			$CameraGlobal/UI.visible = false
+			$Catfish/CameraCatfish/UI.visible = false
+		else:
+			$CameraGlobal/UI.visible = true
+			$Catfish/CameraCatfish/UI.visible = true
 		UI = not UI
-		print("UIT", UI)
-			
+	elif event.is_action_pressed("NormalKeyBoard_K"):
+		if $Temperatura.temperatura < -10:
+			$spawn_bubbles.frecuenciaS = 2
+		else:
+			$spawn_bubbles.frecuenciaS = 1
+	elif event.is_action_pressed("NormalKeyBoard_J"):
+		if $Temperatura.temperatura > 25:
+			$spawn_bubbles.frecuenciaS =  0.2
+		else: 
+			$spawn_bubbles.frecuenciaS = 1
+		
 func create_bubbles():
 	pass

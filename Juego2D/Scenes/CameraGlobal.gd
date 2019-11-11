@@ -28,3 +28,6 @@ func _on_Timer_timeout():
 	$UI/J2.visible = true
 	$UI/N2.visible = true
 	$UI/M2.visible = true
+
+func _set(property, value):
+	property = value

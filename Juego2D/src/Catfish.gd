@@ -65,7 +65,12 @@ func _on_bubbles(area):
 	if area.name.find("Anguila") != -1:
 		take_a_hit()
 		return
-
+	if area.name.find("Comida") != -1:
+		area.visible = false
+		area.get_parent().remove_child(area)
+		self.scale.x += 0.05
+		self.scale.y += 0.05
+		
 func take_a_hit():
 	$AnimatedSprite.play("Collide")
 	$AnimatedSprite.flip_v = true

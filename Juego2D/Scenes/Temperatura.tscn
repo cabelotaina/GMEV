@@ -8,8 +8,8 @@
 script = ExtResource( 1 )
 
 [node name="Temperatura" type="Light2D" parent="."]
-position = Vector2( 1291.06, 805.786 )
-scale = Vector2( 2.4998, 2.24593 )
+position = Vector2( 1366.77, 858.059 )
+scale = Vector2( 2.64766, 2.39318 )
 enabled = false
 texture = ExtResource( 2 )
 

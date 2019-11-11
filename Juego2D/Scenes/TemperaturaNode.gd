@@ -31,3 +31,4 @@ func _process(delta):
 	else:
 		$Temperatura.enabled = false
 	$RichTextLabel.text = str(temperatura) + "º C"
+	
