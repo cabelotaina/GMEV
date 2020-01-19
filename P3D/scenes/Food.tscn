@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Food/Food.dae" type="PackedScene" id=1]
+[ext_resource path="res://src/Food.gd" type="Script" id=2]
+[ext_resource path="res://resources/Food/TextureFood.material" type="Material" id=3]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.11177
+height = 0.002
+
+[node name="FoodSpatial" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="RB_Food" type="RigidBody" parent="." index="0"]
+contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape" type="CollisionShape" parent="RB_Food" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0457907, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Icosphere" parent="." index="1"]
+material/0 = ExtResource( 3 )
