@@ -9,6 +9,8 @@ func move():
 	#print(rotation_degrees)
 	#print(speed)
 	#print(movement_vector)
+	#print('t', self.transform)
+	#print('gt', self.global_transform)
 	self.transform.origin += movement_vector * speed * 0.1
 	if rotate:
 		self.rotation_degrees.y = int(self.rotation_degrees.y + rotate) % 360
