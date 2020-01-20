@@ -1,0 +1,221 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://resources/Fish/Dory-Pez.dae" type="PackedScene" id=1]
+[ext_resource path="res://src/CamerUI.gd" type="Script" id=2]
+[ext_resource path="res://resources/KeyMap/J_subirT.png" type="Texture" id=3]
+[ext_resource path="res://resources/KeyMap/N_apagar.png" type="Texture" id=4]
+[ext_resource path="res://resources/KeyMap/K_bajarT.png" type="Texture" id=5]
+[ext_resource path="res://resources/KeyMap/M_encender.png" type="Texture" id=6]
+[ext_resource path="res://resources/KeyMap/0_CamaraGlobal.png" type="Texture" id=7]
+[ext_resource path="res://resources/KeyMap/1_CamaraGlobal.png" type="Texture" id=8]
+[ext_resource path="res://resources/KeyMap/1_CamaraDory.png" type="Texture" id=9]
+[ext_resource path="res://resources/KeyMap/2_CamaraPez.png" type="Texture" id=10]
+[ext_resource path="res://resources/KeyMap/3_CamaraCaracol.png" type="Texture" id=11]
+[ext_resource path="res://resources/KeyMap/F_CamaraFrontal.png" type="Texture" id=12]
+[ext_resource path="res://resources/KeyMap/F_CamaraLateral.png" type="Texture" id=13]
+[ext_resource path="res://resources/KeyMap/ColorFondo0.png" type="Texture" id=14]
+[ext_resource path="res://resources/KeyMap/C_ColorFondo1.png" type="Texture" id=15]
+[ext_resource path="res://resources/KeyMap/D_ColorFondo2.png" type="Texture" id=16]
+[ext_resource path="res://resources/KeyMap/Q_alejar.png" type="Texture" id=17]
+[ext_resource path="res://resources/KeyMap/W_acercar.png" type="Texture" id=18]
+[ext_resource path="res://resources/KeyMap/F3_UI.png" type="Texture" id=19]
+[ext_resource path="res://resources/KeyMap/4_CamaraAnguila.png" type="Texture" id=20]
+[ext_resource path="res://resources/Fish/Material_004.material" type="Material" id=21]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 1.17052
+height = 2.72591
+
+[node name="FishSpatial" instance=ExtResource( 1 )]
+
+[node name="Frontal" type="Camera" parent="." index="0"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 3.35813 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="Frontal" index="0"]
+one_shot = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Frontal" index="1"]
+anchor_right = 0.14
+margin_left = 907.997
+margin_top = 23.0765
+margin_right = 804.637
+margin_bottom = 63.0765
+rect_scale = Vector2( 1.92, 1.36 )
+tab_size = 2
+
+[node name="J2" type="TextureRect" parent="Frontal" index="2"]
+margin_left = 894.848
+margin_top = 130.489
+margin_right = 1344.85
+margin_bottom = 580.489
+rect_scale = Vector2( 0.259832, 0.259832 )
+texture = ExtResource( 3 )
+
+[node name="N2" type="TextureRect" parent="Frontal" index="3"]
+margin_left = 896.205
+margin_top = 347.051
+margin_right = 1346.21
+margin_bottom = 797.051
+rect_scale = Vector2( 0.265911, 0.265911 )
+texture = ExtResource( 4 )
+
+[node name="K2" type="TextureRect" parent="Frontal" index="4"]
+margin_left = 894.326
+margin_top = 237.061
+margin_right = 1344.33
+margin_bottom = 687.061
+rect_scale = Vector2( 0.264716, 0.264716 )
+texture = ExtResource( 5 )
+
+[node name="M2" type="TextureRect" parent="Frontal" index="5"]
+margin_left = 896.042
+margin_top = 458.011
+margin_right = 1346.04
+margin_bottom = 908.011
+rect_scale = Vector2( 0.272062, 0.272062 )
+texture = ExtResource( 6 )
+
+[node name="0" type="TextureRect" parent="Frontal" index="6"]
+margin_left = 92.7148
+margin_top = -5.39789
+margin_right = 542.715
+margin_bottom = 444.602
+rect_scale = Vector2( 0.314568, 0.315993 )
+texture = ExtResource( 7 )
+
+[node name="9" type="TextureRect" parent="Frontal" index="7"]
+margin_left = 224.938
+margin_top = -4.56244
+margin_right = 674.938
+margin_bottom = 445.438
+rect_scale = Vector2( 0.309617, 0.309617 )
+texture = ExtResource( 8 )
+
+[node name="1" type="TextureRect" parent="Frontal" index="8"]
+margin_left = 351.955
+margin_top = -3.68909
+margin_right = 801.955
+margin_bottom = 446.311
+rect_scale = Vector2( 0.316179, 0.316179 )
+texture = ExtResource( 9 )
+
+[node name="2" type="TextureRect" parent="Frontal" index="9"]
+margin_left = 488.659
+margin_top = -6.12
+margin_right = 938.659
+margin_bottom = 443.88
+rect_scale = Vector2( 0.318694, 0.318694 )
+texture = ExtResource( 10 )
+
+[node name="3" type="TextureRect" parent="Frontal" index="10"]
+margin_left = 623.138
+margin_top = -6.62842
+margin_right = 1073.14
+margin_bottom = 443.372
+rect_scale = Vector2( 0.316716, 0.316716 )
+texture = ExtResource( 11 )
+
+[node name="F" type="TextureRect" parent="Frontal" index="11"]
+margin_left = 405.073
+margin_top = 143.197
+margin_right = 855.073
+margin_bottom = 593.197
+rect_scale = Vector2( 0.275359, 0.275359 )
+texture = ExtResource( 12 )
+
+[node name="L" type="TextureRect" parent="Frontal" index="12"]
+margin_left = 517.577
+margin_top = 142.484
+margin_right = 967.577
+margin_bottom = 592.484
+rect_scale = Vector2( 0.276079, 0.276079 )
+texture = ExtResource( 13 )
+
+[node name="H" type="TextureRect" parent="Frontal" index="13"]
+margin_left = 20.4799
+margin_top = 436.076
+margin_right = 470.48
+margin_bottom = 886.076
+rect_scale = Vector2( 0.301969, 0.301969 )
+texture = ExtResource( 14 )
+
+[node name="C" type="TextureRect" parent="Frontal" index="14"]
+margin_left = 142.648
+margin_top = 437.016
+margin_right = 592.648
+margin_bottom = 887.016
+rect_scale = Vector2( 0.306764, 0.306764 )
+texture = ExtResource( 15 )
+
+[node name="D" type="TextureRect" parent="Frontal" index="15"]
+margin_left = 268.528
+margin_top = 435.437
+margin_right = 718.528
+margin_bottom = 885.437
+rect_scale = Vector2( 0.312549, 0.312549 )
+texture = ExtResource( 16 )
+
+[node name="Q" type="TextureRect" parent="Frontal" index="16"]
+margin_left = 2.00348
+margin_top = 1.27679
+margin_right = 452.003
+margin_bottom = 451.277
+rect_scale = Vector2( 0.212234, 0.212234 )
+texture = ExtResource( 17 )
+
+[node name="W" type="TextureRect" parent="Frontal" index="17"]
+margin_left = 0.894958
+margin_top = 89.1388
+margin_right = 450.895
+margin_bottom = 539.139
+rect_scale = Vector2( 0.217355, 0.217355 )
+texture = ExtResource( 18 )
+
+[node name="F3" type="TextureRect" parent="Frontal" index="18"]
+margin_left = 458.862
+margin_top = 431.557
+margin_right = 908.862
+margin_bottom = 881.557
+rect_scale = Vector2( 0.321854, 0.321854 )
+texture = ExtResource( 19 )
+
+[node name="4" type="TextureRect" parent="Frontal" index="19"]
+margin_left = 751.609
+margin_top = -8.01834
+margin_right = 1201.61
+margin_bottom = 441.982
+rect_scale = Vector2( 0.312242, 0.32073 )
+texture = ExtResource( 20 )
+
+[node name="Lateral" type="Camera" parent="." index="1"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -1.62731 )
+
+[node name="RB_Fish" type="RigidBody" parent="." index="2"]
+collision_layer = 31
+collision_mask = 31
+contacts_reported = 300000
+contact_monitor = true
+
+[node name="CollisionShape" type="CollisionShape" parent="RB_Fish" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.24195 )
+shape = SubResource( 1 )
+
+[node name="Armature" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Cuerpo001" parent="Armature/Skeleton" index="0"]
+material/0 = ExtResource( 21 )
+
+[node name="Empty" parent="." index="4"]
+visible = false
+
+[node name="Empty001" parent="." index="5"]
+visible = false
+
+[node name="Recov" type="Timer" parent="." index="7"]
+one_shot = true
+
+[node name="Auto" type="Timer" parent="." index="8"]
+one_shot = true
+[connection signal="timeout" from="Frontal/Timer" to="Frontal" method="_on_Timer_timeout"]
