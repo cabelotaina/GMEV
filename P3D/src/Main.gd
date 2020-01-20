@@ -55,10 +55,16 @@ func _process(delta):
 		$Fishbowl/Pecera.get_surface_material(0).albedo_color = Color('#00FF00')
 	elif Input.is_key_pressed(KEY_Q):
 		if activeObj:
-			currentCamera.transform.origin.x += 0.01
+			if currentCamera.name.find("Frontal") != -1:
+				currentCamera.transform.origin.z += 0.01
+			else:
+				currentCamera.transform.origin.x += 0.01
 	elif Input.is_key_pressed(KEY_W):
 		if activeObj:
-			currentCamera.transform.origin.x += -0.01
+			if currentCamera.name.find("Frontal") != -1:
+				currentCamera.transform.origin.z -= 0.01
+			else:
+				currentCamera.transform.origin.x -= 0.01
 	elif Input.is_key_pressed(KEY_F3):
 		if UI == false:
 			$Fish/Frontal/"0".visible = false

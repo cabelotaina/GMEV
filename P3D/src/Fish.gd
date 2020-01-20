@@ -44,7 +44,6 @@ func set_down_movement():
 	#$AnimationPlayer.play("Move_02")
 
 func move_backward():
-	print("BAAAACK")
 	$RB_Fish.contacts_reported = 0
 	$AnimationPlayer.play("Scared02")
 	self.movement_vector = -1 * self.movement_vector
@@ -75,15 +74,15 @@ func _on_select_collision(area):
 		self._set_scale(self.scale.x + .05)
 
 func _on_timeout_with_recovery():
-	print("WITHHH")
 	self.movement_vector = self.last_direction
 	self.rotation_degrees = self.last_rotation
 	isBlocked = false
 	
 func _on_timeout_without_recovery():
-	print("WITHOOOOUT")
 	isBlocked = false
 	$RB_Fish.contacts_reported = 300000
+	if self.rotation_degrees.x or self.rotation_degrees.z:
+		reload()
 	
 func turn_off_all_cameras():
 	$Frontal.current = false

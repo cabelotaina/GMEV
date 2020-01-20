@@ -25,13 +25,14 @@
 radius = 1.17052
 height = 2.72591
 
-[node name="FishSpatial" instance=ExtResource( 1 )]
+[node name="FishSpatial" index="0" instance=ExtResource( 1 )]
 
 [node name="Frontal" type="Camera" parent="." index="0"]
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 0, 0, 3.35813 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 3.35813 )
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="Frontal" index="0"]
+one_shot = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Frontal" index="1"]
 anchor_right = 0.14
@@ -179,7 +180,7 @@ rect_scale = Vector2( 0.321854, 0.321854 )
 texture = ExtResource( 19 )
 
 [node name="Lateral" type="Camera" parent="." index="1"]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 3, 0, -1.62731 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -1.62731 )
 
 [node name="RB_Fish" type="RigidBody" parent="." index="2"]
 collision_layer = 31

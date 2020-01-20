@@ -118,6 +118,11 @@ func _set_position(value):
 
 func _set_scale(scala):
 	self.scale = Vector3(scala, scala, scala)
+	
+func reload():
+	self.movement_vector = Vector3(0, 0, 1)
+	self.last_direction = Vector3(0, 0, 1)
+	self.rotation_degrees = Vector3.ZERO
 
 func set_right_movement():
 	pass

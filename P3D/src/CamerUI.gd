@@ -1,19 +1,26 @@
 extends Camera
 
+var menuOn = true;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 	
 func _input(event):
-	if event.is_action_pressed("NormalKeyBoard_K"):
+	
+	if event.is_action_released("F3_UI"):
+		menuOn = not menuOn
+	elif not menuOn:
+		pass
+	elif event.is_action_pressed("NormalKeyBoard_K"):
 		$K2.visible = false
 		$Timer.start(1)
 	elif event.is_action_pressed("NormalKeyBoard_J"):
 		$J2.visible = false
-		$Timer.start(1)		
+		$Timer.start(1)
 	elif event.is_action_pressed("NormalKeyBoard_N"):
 		$N2.visible = false
-		$Timer.start(1)		
+		$Timer.start(1)
 	elif event.is_action_pressed("NormalKeyBoard_M"):
 		$M2.visible = false
 		$Timer.start(1)
@@ -56,6 +63,7 @@ func _input(event):
 		
 
 func _on_Timer_timeout():
+	print("PASO POR ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	$"0".visible = true
 	$"9".visible = true
 	$"1".visible = true

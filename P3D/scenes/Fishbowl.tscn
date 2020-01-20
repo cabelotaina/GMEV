@@ -46,9 +46,9 @@ can_sleep = false
 [node name="CollisionShape" type="CollisionShape" parent="RB_Bowl1" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="RB_Bowl2" type="RigidBody" parent="." index="5"]
+editor/display_folded = true
 collision_layer = 8
 collision_mask = 0
 mode = 1
