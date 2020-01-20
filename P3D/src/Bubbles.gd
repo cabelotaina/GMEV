@@ -23,7 +23,7 @@ func _on_select_collision(area):
 	
 	if area.name.find("Fish") != -1:
 		self.visible = false
-		self.get_parent().remove_child(area)
+		self.get_parent().remove_child(self)
 		
 	if area.name.find("Snail") != -1:
 		self.visible = false

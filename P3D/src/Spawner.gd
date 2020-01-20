@@ -11,12 +11,15 @@ func _ready():
 	$Timer.connect("timeout", self, "_spawn")
 	randomize()
 
+func remove_child(ch):
+	get_node("Container").remove_child(ch)
+
 func _spawn():
 	var newObj = obj.instance()
-	var escala = .1
-	var randomx = rand_range(-self.scale.x/2, self.scale.x/2)
-	var randomz = rand_range(-self.scale.z/2, self.scale.z/2)
+	var escala = .4
+	var randomx = rand_range(-25, 25)
+	var randomz = rand_range(-25, 25)
 	#print(Vector3(randomx, 0, randomz))
-	newObj._set_position(Vector3(randomx, 0, randomz))
+	newObj._set_position(Vector3(randomx, -75, randomz))
 	newObj._set_scale(escala)
 	get_node("Container").add_child(newObj)

@@ -4,11 +4,11 @@
 [ext_resource path="res://resources/Moon/Cuerpo.material" type="Material" id=2]
 [ext_resource path="res://resources/Moon/Ojos_001.material" type="Material" id=3]
 
-[sub_resource type="CapsuleShape" id=8]
+[sub_resource type="CapsuleShape" id=1]
 radius = 2.53343
 height = 0.002
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Scared02"
 length = 2.5
 tracks/0/type = "transform"
@@ -93,21 +93,20 @@ tracks/10/keys = PoolRealArray( 0, 1, 1.02445e-08, 0, 1.11759e-07, 2.77556e-17, 
 
 [node name="RB_Fish" type="RigidBody" parent="." index="0"]
 editor/display_folded = true
-contacts_reported = 2
+collision_layer = 31
+collision_mask = 31
+contacts_reported = 300000
 contact_monitor = true
 
 [node name="CollisionShape" type="CollisionShape" parent="RB_Fish" index="0"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="Frontal" type="Camera" parent="." index="1"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.588698, 0, 2.25242 )
 
 [node name="Lateral" type="Camera" parent="." index="2"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.70894, 0, 0 )
-
-[node name="Armature" parent="." index="3"]
-editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.11536, 0, -1.78216 )
 
 [node name="Cuerpo" parent="Armature/Skeleton" index="0"]
 material/0 = ExtResource( 2 )
@@ -128,7 +127,7 @@ visible = false
 visible = false
 
 [node name="AnimationPlayer" parent="." index="7"]
-anims/Scared02 = SubResource( 7 )
+anims/Scared02 = SubResource( 2 )
 
 [node name="Recov" type="Timer" parent="." index="8"]
 one_shot = true

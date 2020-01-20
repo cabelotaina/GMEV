@@ -8,7 +8,7 @@ var isBlocked = false
 var movement_vector = Vector3(0, 0, 1)
 var last_direction = Vector3(0, 0, 1)
 var last_rotation = Vector3(0, 0, 0)
-var context_speed = 0.0
+var context_speed = 0.01
 var temperature_object = null
 
 #new
@@ -17,9 +17,6 @@ var rotate = 0
 func _ready():
 	$Recov.connect("timeout", self, "_on_timeout_with_recovery")
 	$Auto.connect("timeout", self, "_on_timeout_without_recovery")
-	
-	yOriginal = self.translation.y
-	self.context_speed = self.speed
 	randomize()
 	###self.temperature_object = get_parent().get_node("Temperatura")
 	###temperature_object.connect("temperatura_changed", self, "_change_speed")

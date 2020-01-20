@@ -3,7 +3,7 @@ extends "res://src/Personaje.gd"
 func _ready():
 	$AnimationPlayer.play("Move01")
 	$RB_Fish.connect("body_entered", self, "_on_select_collision")
-	$RB_Fish.connect("body_exited", self, "_on_select_collision")
+	#$RB_Fish.connect("body_shape_exited", self, "_on_select_collision")
 
 func move():
 	#print(rotation_degrees)
@@ -18,14 +18,14 @@ func move():
 			$AnimationPlayer.play("Move01")
 
 func set_right_movement():
-	$AnimationPlayer.play("RotateR")
-	self.movement_vector = self.movement_vector.cross(Vector3(0, -1, 0))
-	self.rotate = 90.0	
-
-func set_left_movement():
-	$AnimationPlayer.play("RotateL")
+	$AnimationPlayer.play("Move02")
 	self.movement_vector = self.movement_vector.cross(Vector3(0, 1, 0))
 	self.rotate = -90.0
+
+func set_left_movement():
+	$AnimationPlayer.play("Move02")
+	self.movement_vector = self.movement_vector.cross(Vector3(0, -1, 0))
+	self.rotate = 90.0
 
 func set_up_movement():
 	prepare_block()
@@ -54,6 +54,7 @@ func move_backward():
 func idle(delta):
 	pass
 
+#func _on_select_collision(body_id, area, body_shape, local_shape):
 func _on_select_collision(area):
 
 	print("Fish Collision: ", area.name,' ', self.name)
@@ -82,7 +83,7 @@ func _on_timeout_with_recovery():
 func _on_timeout_without_recovery():
 	print("WITHOOOOUT")
 	isBlocked = false
-	$RB_Fish.contacts_reported = 2
+	$RB_Fish.contacts_reported = 300000
 	
 func turn_off_all_cameras():
 	$Frontal.current = false
