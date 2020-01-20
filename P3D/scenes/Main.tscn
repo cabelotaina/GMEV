@@ -1,94 +1,123 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Spawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/Spawner.gd" type="Script" id=3]
-[ext_resource path="res://scenes/Fishbowl.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Room.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Food.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Bubble.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Seaweed.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/Moon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/Fish.gd" type="Script" id=10]
-[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Snail.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/Snail.gd" type="Script" id=13]
+[ext_resource path="res://src/SceneCameras.gd" type="Script" id=2]
+[ext_resource path="res://src/Temperature.gd" type="Script" id=3]
+[ext_resource path="res://src/BowlFishLight.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Spawner.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Fishbowl.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Room.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Food.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Bubble.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Seaweed.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Moon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Fish.gd" type="Script" id=13]
+[ext_resource path="res://scenes/Fish.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Snail.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Snail.gd" type="Script" id=16]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="SceneCameras" type="Spatial" parent="."]
-editor/display_folded = true
+script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="SceneCameras"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.212, 100, 0.077 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0.212, 100, 0.077 )
+far = 193.3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SceneCameras/Camera"]
+margin_left = 886.867
+margin_top = 20.0422
+margin_right = 926.867
+margin_bottom = 60.0422
+rect_scale = Vector2( 2.68, 1.32 )
 
 [node name="Camera2" type="Camera" parent="SceneCameras"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.099, 28.7987, -37.1545 )
+transform = Transform( -0.999999, -0.00144494, 0.000518686, -0.000423806, 0.584553, 0.811356, -0.00147556, 0.811354, -0.584553, 1.099, 28.7987, -37.1545 )
 
-[node name="FoodSpawner" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.093, 0 )
+[node name="RichTextLabel" type="RichTextLabel" parent="SceneCameras/Camera2"]
+margin_left = 886.867
+margin_top = 20.0422
+margin_right = 926.867
+margin_bottom = 60.0422
+rect_scale = Vector2( 2.68, 1.32 )
+
+[node name="Temperatura" type="Spatial" parent="."]
+editor/display_folded = true
 script = ExtResource( 3 )
+
+[node name="BowlFishLight" type="DirectionalLight" parent="Temperatura"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, -3.82731, 53.8821, 12.2964 )
+light_color = Color( 0, 0.0156863, 1, 1 )
+light_energy = 10.0
+light_indirect_energy = 2.62
+script = ExtResource( 4 )
+
+[node name="FoodSpawner" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40.093, 0 )
+script = ExtResource( 6 )
 objStr = "Food"
 
-[node name="Fishbowl" parent="." instance=ExtResource( 4 )]
+[node name="Fishbowl" parent="." instance=ExtResource( 7 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0 )
 
-[node name="Room" parent="." instance=ExtResource( 5 )]
+[node name="Room" parent="." instance=ExtResource( 8 )]
 transform = Transform( 15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -35.1343, 0 )
 
-[node name="BubbleSpawner" parent="." instance=ExtResource( 2 )]
+[node name="BubbleSpawner" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.5027, 0 )
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 objStr = "Bubble"
 
-[node name="FoodSpatial" parent="." instance=ExtResource( 6 )]
+[node name="FoodSpatial" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5448, 14.8656, 15.7455 )
 speed = 0.0
 
-[node name="BubbleSpatial" parent="." instance=ExtResource( 7 )]
+[node name="BubbleSpatial" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.45571, 14.237, 22.4951 )
 speed = 0.0
 
-[node name="SeaweedSpatial" parent="." instance=ExtResource( 8 )]
+[node name="SeaweedSpatial" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60537, 14.6908, 31.7199 )
 
-[node name="MoonFish" parent="." instance=ExtResource( 9 )]
+[node name="MoonFish" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.75805, 13.924, 0 )
-script = ExtResource( 10 )
+script = ExtResource( 13 )
 speed = 0.05
 
-[node name="Fish" parent="." instance=ExtResource( 11 )]
+[node name="Fish" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.568, -3.60998, 0 )
-script = ExtResource( 10 )
+script = ExtResource( 13 )
 speed = 0.02
 automatic = true
 
-[node name="Snail" parent="." instance=ExtResource( 12 )]
+[node name="Snail" parent="." instance=ExtResource( 15 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -32, -15.071 )
-script = ExtResource( 13 )
+script = ExtResource( 16 )
 speed = 0.001
 
 [node name="Seaweeds" type="Spatial" parent="."]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60537, 14.6908, 31.7199 )
 
-[node name="SeaweedSpatial2" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial2" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.605, -44, -31.72 )
 
-[node name="SeaweedSpatial3" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial3" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10756, -44, -28.0734 )
 
-[node name="SeaweedSpatial4" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial4" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.10756, -44, -32.1374 )
 
-[node name="SeaweedSpatial5" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial5" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6957, -44, -22.0444 )
 
-[node name="SeaweedSpatial6" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial6" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6957, -44, -17.9655 )
 
-[node name="SeaweedSpatial7" parent="Seaweeds" instance=ExtResource( 8 )]
+[node name="SeaweedSpatial7" parent="Seaweeds" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0347, -44, -26.2501 )
 
 [node name="PinJoint" type="PinJoint" parent="."]

@@ -1,6 +1,6 @@
 extends Spatial
 
-
+var UI = false;
 var activeObj = null;
 var currentCamera = null;
 var temperatura = 0.5;
@@ -59,6 +59,44 @@ func _process(delta):
 	elif Input.is_key_pressed(KEY_W):
 		if activeObj:
 			currentCamera.transform.origin.x += -0.01
+	elif Input.is_key_pressed(KEY_F3):
+		if UI == false:
+			$Fish/Frontal/"0".visible = false
+			$Fish/Frontal/"9".visible = false
+			$Fish/Frontal/"1".visible = false
+			$Fish/Frontal/"2".visible = false
+			$Fish/Frontal/"3".visible = false
+			$Fish/Frontal/F.visible = false
+			$Fish/Frontal/L.visible = false
+			$Fish/Frontal/H.visible = false
+			$Fish/Frontal/K2.visible = false
+			$Fish/Frontal/J2.visible = false
+			$Fish/Frontal/N2.visible = false
+			$Fish/Frontal/M2.visible = false
+			$Fish/Frontal/F3.visible = false
+			$Fish/Frontal/W.visible = false
+			$Fish/Frontal/Q.visible = false
+			$Fish/Frontal/D.visible = false
+			$Fish/Frontal/C.visible = false
+		else:
+			$Fish/Frontal/"0".visible = true
+			$Fish/Frontal/"9".visible = true
+			$Fish/Frontal/"1".visible = true
+			$Fish/Frontal/"2".visible = true
+			$Fish/Frontal/"3".visible = true
+			$Fish/Frontal/F.visible = true
+			$Fish/Frontal/L.visible = true
+			$Fish/Frontal/H.visible = true
+			$Fish/Frontal/K2.visible = true
+			$Fish/Frontal/J2.visible = true
+			$Fish/Frontal/N2.visible = true
+			$Fish/Frontal/M2.visible = true
+			$Fish/Frontal/F3.visible = true
+			$Fish/Frontal/W.visible = true
+			$Fish/Frontal/Q.visible = true
+			$Fish/Frontal/D.visible = true
+			$Fish/Frontal/C.visible = true
+		UI = not UI
 	else:
 		pass
 
